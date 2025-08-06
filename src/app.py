@@ -71,5 +71,5 @@ if st.button("Realice Predicción"):
 if st.button("Ver Precisión del Modelo"):
     st.write("El Porcentaje de Precisión de su Modelo es:",f"{accuracy:.2%}")
     # resultados para otro 
-a=2
-b=5
+a=1
+b=4
