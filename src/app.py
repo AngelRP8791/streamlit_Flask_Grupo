@@ -19,7 +19,8 @@ Esta función específica lee el flujo de bytes del objeto
    binario de lectura, "rb") y lo transforma de nuevo en 
    su forma original, un objeto Python. 
 """
-model = load(open("/workspaces/ml-streamlit/models/modelo.pkl", "rb"))
+model = load(open("/workspaces/ml-streamlit/models/modelo_mlp.pkl", "rb"))
+accuracy = load(open("/workspaces/ml-streamlit/models/accuracy_mlp.pkl", "rb"))
 
 # hacer una lista con las categorias del target
 class_dict = {
@@ -63,8 +64,10 @@ var8 = edad_dict[var8]
 if st.button("Realice Predicción"):
     prediction = str(model.predict([[var1, var2, var3, var4, var5, var6, var7, var8]])[0])
     pred_class = class_dict[prediction]
-    st.success("Resultado para el modelo de regresión lineal:")
+    st.success("Resultado para el modelo de Redes Neuronales:")
     st.write("Prediction:", pred_class)
-    #
-    # la precision del resultado 
+    
+
+if st.button("Ver Precisión del Modelo"):
+    st.write("El Porcentaje de Precisión de su Modelo es:",f"{accuracy:.2%}")
     # resultados para otro 
